@@ -12,11 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var mainVC: MainViewController?;
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+
+        mainVC  = MainViewController(nibName: "MainViewController", bundle:nil);
+
+        let frame = UIScreen.mainScreen().bounds;
+        window = UIWindow(frame: frame);
+
+        window!.rootViewController = mainVC;
+        window!.makeKeyAndVisible();
+
+        return true;
     }
 
     func applicationWillResignActive(application: UIApplication) {
